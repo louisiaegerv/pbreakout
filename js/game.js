@@ -72,8 +72,8 @@ function initBricks() {
     width: 50,
     height: 20,
     count: {
-      row: 1,
-      col: 2
+      row: 3,
+      col: 7
     },
     offset: {
       top: 50,
