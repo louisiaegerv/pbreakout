@@ -65,6 +65,7 @@ function update() {
   game.physics.arcade.collide(ball, paddle, ballHitPaddle);
   game.physics.arcade.collide(ball, bricks, ballHitBrick);
   paddle.x = game.input.x || game.world.width/2;
+  window.addEventListener("deviceorientation", handleOrientation, true);
 }
 
 function initBricks() {
@@ -72,8 +73,8 @@ function initBricks() {
     width: 50,
     height: 20,
     count: {
-      row: 1,
-      col: 2
+      row: 3,
+      col: 7
     },
     offset: {
       top: 50,
@@ -145,4 +146,9 @@ function startGame() {
 function handleRemoteImagesOnJSFiddle() {
 	game.load.baseURL = 'https://end3r.github.io/Gamedev-Phaser-Content-Kit/demos/';
 	game.load.crossOrigin = 'anonymous';
+}
+
+function handleOrientation(e) {
+  var x = e.gamma;
+  paddle.x += x;
 }
